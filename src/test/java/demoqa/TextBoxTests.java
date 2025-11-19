@@ -17,9 +17,9 @@ public class TextBoxTests {
         Configuration.baseUrl = "https://demoqa.com";
     }
     @Test
-    void fillFormTest() {
+    void fillTextFormTest() {
         open("/text-box");
-        //sleep(5000);
+
         $(".text-center").shouldHave(text("Text Box"));  //<h1 class="text-center">Text Box</h1>
 
         $("#userName").setValue("Melnikova Ekaterina");

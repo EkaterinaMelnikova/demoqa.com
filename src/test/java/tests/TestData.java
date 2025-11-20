@@ -26,10 +26,8 @@ public class TestData {
     String img = "img/1.png";
     String userAddress = faker.address().streetAddress();
     String userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-    String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-    String userCity = setRandomCity(state);
-    String city = setRandomCity(state);
-    String stateAndCity = state + " " + city;
+    String userCity = setRandomCity(userState);
+
 
 
 

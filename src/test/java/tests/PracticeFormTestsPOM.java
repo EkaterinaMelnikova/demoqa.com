@@ -11,16 +11,11 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeFormTestsPOM {
+public class PracticeFormTestsPOM extends TestBase {
 
     PracticeFormPage practiceFormPage= new PracticeFormPage();
 
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
     @Test
     void fillPracticeFormTest() {
 

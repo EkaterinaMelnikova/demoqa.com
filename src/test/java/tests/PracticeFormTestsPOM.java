@@ -13,6 +13,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class PracticeFormTestsPOM {
 
+    PracticeFormPage practiceFormPage= new PracticeFormPage();
+
 
     @BeforeAll
     static void beforeAll() {
@@ -24,8 +26,10 @@ public class PracticeFormTestsPOM {
 
         String userName="Ekaterina";
 
-        new PracticeFormPage().openPage();
-        new PracticeFormPage().setFirstName(userName);
+
+        practiceFormPage.openPage()
+                .setFirstName(userName);
+
 
         $("#firstName").setValue("Ekaterina");
         $("#lastName").setValue("Melnikova");

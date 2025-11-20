@@ -2,8 +2,12 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import pages.PracticeFormPage;
 
 public class TestBase {
+
+    TestData testData = new TestData();
+    PracticeFormPage practiceFormPage= new PracticeFormPage();
 
     @BeforeAll
     static void beforeAll() {

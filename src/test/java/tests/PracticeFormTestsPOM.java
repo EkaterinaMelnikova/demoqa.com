@@ -20,36 +20,45 @@ public class PracticeFormTestsPOM extends TestBase {
     void fillPracticeFormTest() {
 
         String userName="Ekaterina";
+        String userlastName = "Melnikova";
+        String userEmail1 = "meme@gmail.com";
+        String userGender = "Female";
+        String userPhone = "1234567890";
+        String birthYear = "2011";
+        String birthMonth = "July";
+        String birthDay = "07";
+        String birthDate = birthDay + " " + birthMonth + "," + birthYear;
+        String userSubject = "Math";
+        String userHobbie = "Reading";
+        String img = "img/1.png";
+        String userAddress = "Address 123";
+        String userState = "NCR";
+        String userCity = "Delhi";
+
 
 
         practiceFormPage.openPage()
-                .setFirstName(userName);
+                .setFirstName(userName)
+                .setLastName(userlastName)
+                .setEmail(userEmail1)
+                .setGender(userGender)
+                .setPhone(userPhone)
+                .setBirthDate(birthDay,birthMonth,birthYear)
+                .setSubject(userSubject)
+                .setHobbie(userHobbie)
+                .setPicture(img)
+                .setAddress(userAddress)
+                .setState(userState)
+                .setCity(userCity)
+                .submit();
 
 
-        $("#firstName").setValue("Ekaterina");
-        $("#lastName").setValue("Melnikova");
-        $("#userEmail").setValue("meme@gmail.com");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("1234567890");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("July");
-        $(".react-datepicker__year-select").selectOption("2008");
-        $(".react-datepicker__day--030:not(.react-datepicker__day--outside-month)").click();
-        $("#subjectsInput").setValue("Math").pressEnter();
-        $("#hobbiesWrapper").$(byText("Reading")).click();
-        $("#uploadPicture").uploadFromClasspath("img/1.png");
-        $("#currentAddress").setValue("SPb, Kushelevskaya, 3");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
-        $("#submit").click();
-
-        $(".modal-dialog").should(appear);
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Ekaterina"), text("Melnikova"),
-                text("meme@gmail.com"), text("1234567890"));
-
+        practiceFormPage.verifyResultsModalAppear()
+                .verifyResult("Student Name", userName + " " + userlastName)
+                .verifyResult("Student Email", userEmail1)
+                .verifyResult("Gender", userGender)
+                .verifyResult("Mobile", userPhone)
+                .verifyResult("Date of Birth", birthDate);
 
 
     }

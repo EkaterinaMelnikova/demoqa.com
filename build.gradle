@@ -35,3 +35,10 @@ allure {
         }
     }
 }
+
+
+tasks.register('demoqa_test', Test) {
+    useJUnitPlatform {
+        includeTags("demoqa")
+    }
+}
